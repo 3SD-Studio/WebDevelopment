@@ -3,15 +3,28 @@
 }
 
 <div> 
-    <form id="code-form" action="HtmlCode/test">
+    <form id="code-form" action="HtmlCode/GeneratePage" target="_blank" method="post">
         <label for="HtmlCodeEditor">HTML code:</label>
-        <input type="text" id="HtmlCode" name="htmlCode">
+        
+       
+        <!--Here will be HTML input-->
+        <textarea name="htmlCode">
+       
+        </textarea>
+
+        <!--Here will be CSS input-->
+        <textarea name="cssCode">
+       
+        </textarea>
+
+         <!--Here will be JS input-->
+        <textarea name="jsCode" >
+       
+        </textarea>
+
         <input type="submit" value="Submit">
     </form>
 
 
-    <!--TUTAJ EDYTOR BĘDZIE-->
-    <textarea form="code-form">
-       
-    </textarea>
+    
 </div>  

@@ -6,11 +6,27 @@ namespace WebDevelopment.Controllers {
             return View();
         }
 
-        public ContentResult Test(string htmlCode) {
+        public ContentResult GeneratePage(string htmlCode, string cssCode, string jsCode) {
+            string code =
+                "<!DOCTYPE html>" +
+                "<html>" +
+                "   <head>" +
+                "       <meta charset=UTF8>" +
+                "       <title>Your generated htmlPage</title>" +
+                "       <style>" + cssCode + "</style>" +
+                "       <script>" + jsCode + "</script>" +  
+                "   </head>" +
+                "   <body>" +
+                "       " + htmlCode + 
+                "   </body>" +
+                "</html>";
+
+
+
             return new ContentResult
             {
                 ContentType = "text/html",
-                Content = $"{htmlCode}"
+                Content = $"{code}"
             }; ; 
         }
     }
