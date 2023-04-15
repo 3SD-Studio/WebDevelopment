@@ -1,14 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div> 
+ 
+<div class="container" id="code"> 
     <form id="code-form" action="HtmlCode/GeneratePage" target="_blank" method="post">
         <label for="HtmlCodeEditor">HTML code:</label>
         
        
         <!--Here will be HTML input-->
-        <textarea name="htmlCode">
+        <textarea id="" name="htmlCode">
        
         </textarea>
 
@@ -22,9 +22,12 @@
        
         </textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Open in new tab">
     </form>
+</div>
 
+<div class="container" id="preview">
+    <iframe>
 
-    
-</div>  
+    </iframe>
+</div>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebDevelopment.Models;
 
 namespace WebDevelopment.Controllers {
     public class HtmlCodeController : Controller {
@@ -28,6 +29,10 @@ namespace WebDevelopment.Controllers {
                 ContentType = "text/html",
                 Content = $"{code}"
             }; ; 
+        }
+
+        public IActionResult SavePage(HtmlCodeModel page) {
+            throw new NotImplementedException("You need to prepare how to make it.");
         }
     }
 }
