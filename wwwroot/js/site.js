@@ -10,6 +10,7 @@ window.onload = function () {
     htmlEditor = ace.edit("htmlEditor");
     htmlEditor.setTheme("ace/theme/monokai");
     htmlEditor.session.setMode("ace/mode/html");
+    htmlEditor.getSession().on('change', updateCode);
 
     cssEditor = ace.edit("cssEditor");
     cssEditor.setTheme("ace/theme/monokai");
@@ -19,4 +20,17 @@ window.onload = function () {
     jsEditor.setTheme("ace/theme/monokai");
     jsEditor.session.setMode("ace/mode/javascript");
 }
-   
+
+
+function updateCode() {
+    replaceIframeContent(document.getElementById("previewOutput"), htmlEditor.getSession().getValue());
+
+}
+
+
+function replaceIframeContent(iframeElement, newHTML) {
+    iframeElement.src = "about:blank";
+    iframeElement.contentWindow.document.open();
+    iframeElement.contentWindow.document.write(newHTML);
+    iframeElement.contentWindow.document.close();
+}
