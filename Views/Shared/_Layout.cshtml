@@ -9,11 +9,30 @@
     <link rel="stylesheet" href="~/WebDevelopment.styles.css" asp-append-version="true" />
     <script src="js/editor/ace.js"></script>
     <script src="js/editor/theme-dracula.js"></script>
+
+    <style>
+        body {
+            background-color: #252525;
+        }
+
+        #my-navbar {
+            width: 100%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        #my-navbar li {
+            float: left;
+        }
+
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <ul id="my-navbar">
                 <li>Home</li>
                 <li>HTML editor </li>
             </ul>

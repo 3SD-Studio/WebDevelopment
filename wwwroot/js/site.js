@@ -15,6 +15,7 @@ window.onload = function () {
     cssEditor = ace.edit("cssEditor");
     cssEditor.setTheme("ace/theme/monokai");
     cssEditor.session.setMode("ace/mode/css");
+    cssEditor.getSession().on('change', updateCode);
 
     jsEditor = ace.edit("jsEditor");
     jsEditor.setTheme("ace/theme/monokai");
@@ -23,14 +24,24 @@ window.onload = function () {
 
 
 function updateCode() {
-    replaceIframeContent(document.getElementById("previewOutput"), htmlEditor.getSession().getValue());
+    replaceIframeContent(
+        document.getElementById("previewOutput"),
+        htmlEditor.getSession().getValue(),
+        cssEditor.getSession().getValue(), 
+        jsEditor.getSession().getValue() 
+    );
 
 }
 
 
-function replaceIframeContent(iframeElement, newHTML) {
+function replaceIframeContent(iframeElement, newHTML, newCSS, newJS) {
     iframeElement.src = "about:blank";
     iframeElement.contentWindow.document.open();
-    iframeElement.contentWindow.document.write(newHTML);
+    iframeElement.contentWindow.document.write(
+        newHTML +
+        "<style>" + newCSS + "</style>" +
+        "<script>" + newJS + "</script>"
+    );
     iframeElement.contentWindow.document.close();
 }
+
